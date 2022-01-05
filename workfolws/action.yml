@@ -3,7 +3,7 @@
 name: CI
 env:
     app: "Dockerfile"
-#   PACKAGE_NAME    : "docker-tag-version-${{github.sha}}"
+    PACKAGE_NAME    : "docker-tag-version-${{github.sha}}"
 
 # Controls when the workflow will run
 on:
@@ -31,8 +31,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build docker image
         run: |
-            docker build -t test:dev-$(mian_latest) .
- #           echo Application name: ${{ env.app }}
+            docker build -t test:dev-$(date +"%Y%m%d%H%M%S") .
+            echo Application name: ${{ env.app }}
+
  # deploy: 
  #  runs-on: ubuntu-latest
 
@@ -45,4 +46,3 @@ jobs:
  #     - name: Deploy docker image
  #     run: |
  #          echo deploy docker
- 
