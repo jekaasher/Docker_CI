@@ -31,13 +31,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build docker image
         run: |
-            docker build -t test:dev-$(date +"%Y%m%d%H%M%S") .
- #           echo Application name: ${{ env.app }}
+            docker build -t test:dev-$(main_latest) .
+            echo Application name: ${{ env.app }}
+
  # deploy: 
  #  runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
- #  steps:
+    steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
  #     - uses: actions/checkout@v2
 
@@ -45,4 +46,4 @@ jobs:
  #     - name: Deploy docker image
  #     run: |
  #          echo deploy docker
- 
+ # test ci
