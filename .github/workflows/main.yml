@@ -2,7 +2,7 @@
 
 name: CI
 env:
-    app: "Dockerfile"
+    app: "main.go"
     PACKAGE_NAME    : "docker-tag-version-${{github.sha}}"
 
 # Controls when the workflow will run
