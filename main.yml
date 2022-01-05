@@ -31,7 +31,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build docker image
         run: |
-            docker build -t test:dev-$(date +"%Y%m%d%H%M%S") .
+            docker build -t test:dev-$(mian_latest) .
  #           echo Application name: ${{ env.app }}
  # deploy: 
  #  runs-on: ubuntu-latest
