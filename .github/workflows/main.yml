@@ -1,17 +1,14 @@
 # This is a basic workflow to help you get started with Actions
-# for test build Dockerfile
+
 name: CI
-env:
-    app: "main.go"
-    PACKAGE_NAME    : "docker-tag-version-${{github.sha}}"
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ dev ]
-#  pull_request:
-#    branches: [ main ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,12 +26,12 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Build docker image
+      - name: Run a one-line script
         run: |
-            docker build -t test:dev-$(main_latest) .
-            echo Application name: ${{ env.app }}
+              docker build -t test:dev-$(main_latest) .
+              echo Application name: ${{ env.app }}
 
- # deploy: 
+       # deploy: 
  #  runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
