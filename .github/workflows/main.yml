@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-              docker build -t test:dev-$(main_latest) .
+              docker build -t test:dev-$("main_latest") .
               echo Application name: ${{ env.app }}
 
        # deploy: 
