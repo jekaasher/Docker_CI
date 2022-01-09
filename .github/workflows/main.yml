@@ -7,8 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ dev ]
-      #  tags:
-       #   'v*.*.*'
   pull_request:
     branches: [ main ]
 
@@ -30,7 +28,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-              docker build -t test:dev-$("main_latest") .
+              docker build -t test:dev-$ tags:
+          'v*.*.*'.
               echo Application name: ${{ env.app }}
         
         uses: yosherovych/Docker_CI
