@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 name: CI
-# -- когда выполняется
+# -- WHEN TO DO
 # Controls when the workflow will run
 - on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -12,7 +12,7 @@ name: CI
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch: yes
-# -- что выполняется
+# -- WHAT TO DO 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel 
 jobs:
   # This workflow contains a single job called "build"
@@ -27,9 +27,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: check branch
-        if: ${{ BRANCH_NAME == 'release' }}
-          TAG_NAME: rc-v1.0.1
-      # название на контейнера и ее тег docker build -t [name of container]:[tag of container] .
+        if: ${{ github.ref == 'refs/heads/release' }}
+          env:
+            TAG_NAME: rc-v1.0.1
+      # NAME OF CONTAINER docker build -t [name of container]:[tag of container] .
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo $TAG_NAME
