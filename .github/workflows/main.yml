@@ -34,9 +34,8 @@ jobs:
               echo Application name: ${{ env.app }}
         
         uses: yosherovych/Docker_CI
-              with:
-                tag_ref: ${{ github.ref }}
-                image_name: Dockerfile
+           tag_ref: ${{ github.ref }}
+           image_name: Dockerfile
 
               
 
