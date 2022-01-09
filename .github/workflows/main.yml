@@ -27,8 +27,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: check branch
-        if: ${{ github.ref == 'refs/heads/release' }}
-        run: echo "check release"
+        if: ${{ github.ref == 'refs/heads/dev' }}
         env:
           TAG_NAME: "rc-v1.0.1"
       # NAME OF CONTAINER docker build -t [name of container]:[tag of container] .
