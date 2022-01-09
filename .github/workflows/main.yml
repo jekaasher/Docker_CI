@@ -28,13 +28,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-              docker build -t test:dev-$ tags:
-          'v*.*.*'.
+              docker build -t test:dev-$ tags:'v*.*.*'.
               echo Application name: ${{ env.app }}
         
-        uses: yosherovych/Docker_CI
-           tag_ref: ${{ github.ref }}
-           image_name: Dockerfile
+        #uses: yosherovych/Docker_CI
+        #   tag_ref: ${{ github.ref }}
+         #  image_name: Dockerfile
 
               
 
