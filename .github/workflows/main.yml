@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       TAG_NAME: "dev-timestamp"
+      SUPER_SECRET: ${{ secrets.TEST1 }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -34,7 +35,7 @@ jobs:
       # NAME OF CONTAINER docker build -t [name of container]:[tag of container] .
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo $TAG_NAME
+        run: echo $SUPER_SECRET
         #run: |
          #     docker build -t [name of container]:[tag of container] .
           #    echo Application name: ${{ env.app }}
