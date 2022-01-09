@@ -20,7 +20,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env: 
-      TAG_NAME: dev-$(data)
+      TAG_NAME: "dev-timestamp"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -30,7 +30,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/release' }}
         run: echo "check release"
         env:
-          TAG_NAME: rc-v1.0.1
+          TAG_NAME: "rc-v1.0.1"
       # NAME OF CONTAINER docker build -t [name of container]:[tag of container] .
       # Runs a single command using the runners shell
       - name: Run a one-line script
