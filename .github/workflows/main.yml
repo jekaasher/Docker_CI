@@ -5,13 +5,15 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
+2  push:
     branches: [ dev ]
+        tags:
+         - 'v*.*.*'
   pull_request:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch: yes
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,8 +33,8 @@ jobs:
               docker build -t test:dev-$("main_latest") .
               echo Application name: ${{ env.app }}
 
-       # deploy: 
- #  runs-on: ubuntu-latest
+# deploy: 
+    #  runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
   #  steps:
